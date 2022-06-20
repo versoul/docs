@@ -400,10 +400,10 @@ A `reviewpad.yml` example:
 
 ```yml
 rules:
-	changesCritical:
-		kind: patch
-		description: Verifies if changes critical code
-		spec: $hasAnnotation("critical")
+    changesCritical:
+        kind: patch
+        description: Verifies if changes critical code
+        spec: $hasAnnotation("critical")
 ```
 
 ## &nbsp; hasCodePattern
@@ -1213,8 +1213,8 @@ rules:
 
   isNotSmall:
     description: Not a small pull request
-	kind: patch
-	spec: '!$rule(isSmall)'
+    kind: patch
+    spec: '!$rule(isSmall)'
 ```
 
 # Actions
