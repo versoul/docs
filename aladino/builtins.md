@@ -120,8 +120,13 @@ rules:
 
 ## &nbsp; changed :zap:
 
-| :zap: Professional Edition |
-| -------------------------- |
+| :zap: Professional Edition (*) |
+| ------------------------------ |
+
+_(*) It requires Reviewpad `edition` to be set to `professional` on `reviewpad.yml`_
+```yml
+edition: professional
+```
 ______________
 
 
@@ -133,10 +138,10 @@ The built-in checks if the value set of the first regex is contained in the seco
 
 **Parameters**:
 
-| variable          | type   | description                                  |
-| ------------------| ------ | -------------------------------------------- |
-| `preFilePattern`  | string | antecedent file pattern expression           |
-| `postFilePattern` | string | consequent file pattern expression           |
+| variable          | type   | description                        |
+| ----------------- | ------ | ---------------------------------- |
+| `preFilePattern`  | string | antecedent file pattern expression |
+| `postFilePattern` | string | consequent file pattern expression |
 
 **Return value**:
 
@@ -334,8 +339,13 @@ rules:
 ## &nbsp; hasAnnotation :zap:
 
 
-| :zap: Professional Edition |
-| -------------------------- |
+| :zap: Professional Edition (*) |
+| ------------------------------ |
+
+_(*) It requires Reviewpad `edition` to be set to `professional` on `reviewpad.yml`_
+```yml
+edition: professional
+```
 ______________
 
 
@@ -1373,8 +1383,13 @@ workflows:
 
 ## &nbsp; error :zap:
 
-| :zap: Professional Edition |
-| -------------------------- |
+| :zap: Professional Edition (*) |
+| ------------------------------ |
+
+_(*) It requires Reviewpad `edition` to be set to `professional` on `reviewpad.yml`_
+```yml
+edition: professional
+```
 ______________
 
 
@@ -1384,9 +1399,9 @@ Add a message to the errors section of the report.
 
 **Parameters**:
 
-| variable     | type   | description                         |
-| ------------ | ------ | ----------------------------------- |
-| `comment`    | string | comment to be added in the errors   |
+| variable  | type   | description                       |
+| --------- | ------ | --------------------------------- |
+| `comment` | string | comment to be added in the errors |
 
 **Examples**:
 
@@ -1408,8 +1423,13 @@ workflows:
 
 ## &nbsp info :zap:
 
-| :zap: Professional Edition |
-| -------------------------- |
+| :zap: Professional Edition (*) |
+| ------------------------------ |
+
+_(*) It requires Reviewpad `edition` to be set to `professional` on `reviewpad.yml`_
+```yml
+edition: professional
+```
 ______________
 
 
@@ -1419,9 +1439,9 @@ Add a message to the info section of the report.
 
 **Parameters**:
 
-| variable     | type   | description                             |
-| ------------ | ------ | --------------------------------------- |
-| `comment`    | string | comment to be added in the informations |
+| variable  | type   | description                             |
+| --------- | ------ | --------------------------------------- |
+| `comment` | string | comment to be added in the informations |
 
 **Examples**:
 
@@ -1530,8 +1550,13 @@ workflows:
 ## &nbsp; warn :zap:
 
 
-| :zap: Professional Edition |
-| -------------------------- |
+| :zap: Professional Edition (*) |
+| ------------------------------ |
+
+_(*) It requires Reviewpad `edition` to be set to `professional` on `reviewpad.yml`_
+```yml
+edition: professional
+```
 ______________
 
 
@@ -1541,9 +1566,9 @@ Add a message to the warnings section of the report.
 
 **Parameters**:
 
-| variable     | type   | description                         |
-| ------------ | ------ | ----------------------------------- |
-| `comment`    | string | comment to be added in the warnings |
+| variable  | type   | description                         |
+| --------- | ------ | ----------------------------------- |
+| `comment` | string | comment to be added in the warnings |
 
 **Examples**:
 
