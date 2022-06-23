@@ -1313,41 +1313,6 @@ workflows:
       - $assignReviewer($group("seniors"), 2)
 ```
 
-## &nbsp; comment
-______________
-
-**Description**:
-
-Comments a pull request. Note that this comment will always be added whenever this action is executed. 
-
-**Parameters**:
-
-| variable  | type   | description         |
-| --------- | ------ | ------------------- |
-| `comment` | string | body of the comment |
-
-**Return value**:
-
-*none*
-
-**Examples**:
-
-```yml
-$comment("This is your first contribution! Thank you!")
-```
-
-A `reviewpad.yml` example:
-
-```yml
-workflows:
-  - name: comment-pull-request
-    description: Comment pull request
-    if:
-      - rule: firstContribution
-    then:
-      - $comment("This is your first contribution! Thank you!")
-```
-
 ## &nbsp; close
 ______________
 
@@ -1380,6 +1345,83 @@ workflows:
     then:
       - $close()
 ```
+
+
+## &nbsp; comment
+______________
+
+**Description**:
+
+Comments a pull request.
+
+Note that this comment will always be added whenever this action is executed.
+
+**Parameters**:
+
+| variable  | type   | description         |
+| --------- | ------ | ------------------- |
+| `comment` | string | body of the comment |
+
+**Return value**:
+
+*none*
+
+**Examples**:
+
+```yml
+$comment("This pull request has git conflicts. Please resolve them.")
+```
+
+A `reviewpad.yml` example:
+
+```yml
+workflows:
+  - name: conflict
+    description: Ask to resolve conflict
+    if:
+      - rule: hasConflicts
+    then:
+      - $comment("This pull request has git conflicts. Please resolve them.")
+```
+
+
+## &nbsp; commentOnce
+______________
+
+**Description**:
+
+Comments a pull request once.
+
+If the comment is already present, then the action does nothing.
+
+**Parameters**:
+
+| variable           | type   | description                            |
+| ------------------ | ------ | -------------------------------------- |
+| `comment`          | string | body of the comment                    |
+
+**Return value**:
+
+*none*
+
+**Examples**:
+
+```yml
+$commentOnce("This is your first contribution! Thank you!")
+```
+
+A `revy.yml` example:
+
+```yml
+workflows:
+  - name: comment-pull-request
+    description: Comment pull request
+    if:
+      - rule: firstContribution
+    then:
+      - $commentOnce("This is your first contribution! Thank you!")
+```
+
 
 ## &nbsp; error :zap:
 
@@ -1421,7 +1463,7 @@ workflows:
       - $error("This pull request was considered too large.")
 ```
 
-## &nbsp info :zap:
+## &nbsp; info :zap:
 
 | :zap: Professional Edition (*) |
 | ------------------------------ |
