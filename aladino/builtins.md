@@ -1280,9 +1280,9 @@ ______________
 
 Assigns a defined amount of reviewers to the pull request from the provided list of reviewers.
 
-When there's not enough reviewers to assign to, an warning is returned.
+When there's not enough reviewers to assign to, a warning is returned.
 
-If a reviewer from the defined list has performed a review, his review will re-requested.
+If a reviewer from the defined list has performed a review, their review will be re-requested.
 
 **Parameters**:
 
