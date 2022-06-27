@@ -1313,6 +1313,41 @@ workflows:
       - $assignReviewer($group("seniors"), 2)
 ```
 
+## &nbsp; assignTeamReviewer
+______________
+
+**Description**:
+
+Assigns a set of teams to review the pull request.
+
+**Parameters**:
+
+| variable                | type     | description                                                       |
+| ----------------------- | -------- | ----------------------------------------------------------------- |
+| `teamReviewers`         | []string | list of GitHub team slugs that will be requested                  |
+
+**Return value**:
+
+*none*
+
+**Examples**:
+
+```yml
+$assignTeamReviewer(["core", "support"])
+```
+
+A `reviewpad.yml` example:
+
+```yml
+workflows:
+  - name: review-core-code
+    description: Assign core reviewers to PRs related to core code
+    if:
+      - rule: changesCritical
+    then:
+      - $assignTeamReviewer(["core"])
+```
+
 ## &nbsp; close
 ______________
 
