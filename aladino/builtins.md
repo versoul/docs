@@ -1324,7 +1324,7 @@ Assigns a list of teams to review the pull request.
 
 | variable                | type     | description                                                       |
 | ----------------------- | -------- | ----------------------------------------------------------------- |
-| `teamReviewers`         | []string | list of GitHub team slugs that will be requested                  |
+| `teamReviewers`         | []string | list of GitHub team slugs that will be requested to review        |
 
 **Return value**:
 
@@ -1341,7 +1341,7 @@ A `reviewpad.yml` example:
 ```yml
 workflows:
   - name: review-core-code
-    description: Assign core reviewers to PRs related to core code
+    description: Assign review to core team when changes are made in critical code
     if:
       - rule: changesCritical
     then:
