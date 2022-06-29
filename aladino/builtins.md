@@ -1280,9 +1280,9 @@ ______________
 
 Assigns a defined amount of reviewers to the pull request from the provided list of reviewers.
 
-When there's not enough reviewers to assign to, an warning is returned.
+When there are not enough reviewers to assign to, a warning is returned.
 
-If a reviewer from the defined list has performed a review, his review will re-requested.
+If a reviewer from the defined list has performed a review, their review will be re-requested.
 
 **Parameters**:
 
@@ -1311,6 +1311,41 @@ workflows:
       - rule: authoredByJunior
     then:
       - $assignReviewer($group("seniors"), 2)
+```
+
+## &nbsp; assignTeamReviewer
+______________
+
+**Description**:
+
+Assigns a list of teams to review the pull request.
+
+**Parameters**:
+
+| variable                | type     | description                                                       |
+| ----------------------- | -------- | ----------------------------------------------------------------- |
+| `teamReviewers`         | []string | list of GitHub team slugs that will be requested to review        |
+
+**Return value**:
+
+*none*
+
+**Examples**:
+
+```yml
+$assignTeamReviewer(["core", "support"])
+```
+
+A `reviewpad.yml` example:
+
+```yml
+workflows:
+  - name: review-core-code
+    description: Assign review to core team when changes are made in critical code
+    if:
+      - rule: changesCritical
+    then:
+      - $assignTeamReviewer(["core"])
 ```
 
 ## &nbsp; close
