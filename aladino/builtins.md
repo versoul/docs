@@ -653,7 +653,7 @@ To know more about [GitHub Draft pull request](https://github.blog/2019-02-14-in
 
 `boolean`
 
-A boolean al.Value which is `true` if the pull request is `Draft`, `false` otherwise.
+A boolean which is `true` if the pull request is `Draft`, `false` otherwise.
 
 **Examples**:
 
@@ -1044,7 +1044,7 @@ Determines whether a text includes a certain sentence, returning `true` or `fals
 
 `boolean`
 
-Returns `true` if the al.Value searchSentence is found within the text, `false` otherwise.
+Returns `true` if searchSentence is found within the text, `false` otherwise.
 
 **Examples**:
 
@@ -1069,20 +1069,20 @@ ______________
 
 **Description**:
 
-Determines whether a list includes a certain al.Value among its entries, returning `true` or `false` as appropriate.
+Determines whether a list includes a certain value among its entries, returning `true` or `false` as appropriate.
 
 **Parameters**:
 
 | variable        | type      | description                |
 | --------------- | --------- | -------------------------- |
-| `searchElement` | literal   | The al.Value to search for |
+| `searchElement` | literal   | The value to search for    |
 | `list`          | []literal | The list to search in      |
 
 **Return value**:
 
 `boolean`
 
-Returns `true` if the al.Value searchElement is found within the list, `false` otherwise.
+Returns `true` if searchElement is found within the list, `false` otherwise.
 
 **Examples**:
 
@@ -1099,6 +1099,43 @@ rules:
     description: Verifies if author is junior
     kind: patch
     spec: $isElementOf($author(), $group("junior"))
+```
+
+## &nbsp; startsWith
+______________
+
+**Description**:
+
+Determines whether a text starts with a certain sentence, returning `true` or `false` as appropriate.
+
+**Parameters**:
+
+| variable         | type   | description                |
+| ---------------- | ------ | -------------------------- |
+| `text`           | string | The text to search in      |
+| `prefix`         | string | The prefix                 |
+
+**Return value**:
+
+`boolean`
+
+Returns `true` if `prefix` is a prefix of `text`, `false` otherwise.
+
+**Examples**:
+
+```yml
+$startsWith("Testing string contains", "Test")     #true
+$startsWith("Testing string contains", "string contains")      #false
+```
+
+A `reviewpad.yml` example:
+
+```yml
+rules:
+  - name: isDevBranch
+    kind: patch
+    description: Verifies if the head branch of the pull requests starts with dev
+    spec: $startsWith($head(), "dev/")
 ```
 
 ## Engine
