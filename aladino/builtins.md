@@ -1239,7 +1239,34 @@ ______________
 
 Adds a label to the pull request.
 
-This built-in assumes that the label has been created. Otherwise, it returns an error.
+If the label is not applied to the pull request then nothing happens.
+
+It will check if there is a label with this key in the labels section of reviewpad.yml.
+
+If such label exists, it will use name property of the label; if the property is not present, then it uses the key as the name.
+
+If such label does not exist in labels, it will use the provided input string and create a label with that name.
+
+Here's an example:
+
+```yml
+# ..
+labels:
+  small:
+    name: "Small Change"
+    description: Few files
+  medium:
+    description: Some files
+# ...
+workflows:
+  - name: Add label
+    if:
+      - rule: is-small
+        extra-actions:
+          - $addLabel("small")  # creates the label "Small Change" with description "Few files"
+          - $addLabel("medium") # creates the label "medium" with description "Some files"
+          - $addLabel("large")  # creates the label "large" without description
+```
 
 **Parameters**:
 
@@ -1249,7 +1276,7 @@ This built-in assumes that the label has been created. Otherwise, it returns an 
 
 **Return value**:
 
-Error if the label does not exist in the repository.
+None.
 
 **Examples**:
 
@@ -1629,9 +1656,9 @@ ______________
 
 Removes a label applied to a pull request.
 
-If the label is not applied to the pull request then nothing happens.
+It will check if there is a label with this key in the labels section of reviewpad.yml.
 
-This built-in assumes that the label has been created. Otherwise, it returns an error.
+If such label exists, it will use name property of the label; if the property is not present, then it uses the key as the name.
 
 **Parameters**:
 
