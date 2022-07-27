@@ -842,6 +842,45 @@ rules:
     spec: $reviewers() != []
 ```
 
+## &nbsp; reviewerStatus
+______________
+
+**Description**:
+
+Returns the status of a reviewer in the pull request.
+
+**Parameters**:
+
+| variable        | type   | description                      |
+| --------------- | ------ | -------------------------------- |
+| `reviewerLogin` | string | the GitHub login of the reviewer |
+
+**Return value**:
+
+`string`
+
+The status of a reviewer. It can be one of four string values:
+1. `""`, if there was no review from the reviewer;
+2. `"COMMENTED"`, if all the reviews from the reviewer were comments;
+3. `"CHANGES_REQUESTED"`, if the last review that was not a comment requested changes;
+4. `"APPROVED"`, if the last review that was not a comment requested changes;
+
+**Examples**:
+
+```yml
+$reviewerStatus("marcelosousa")
+```
+
+A `reviewpad.yml` example:
+
+```yml
+rules:
+  - name: approved-by-marcelosousa
+    kind: patch
+    description: Checks if the pull request was approved by marcelosousa
+    spec: '$reviewerStatus("marcelosousa") == "APPROVED"'
+```
+
 
 ## &nbsp; size
 ______________
