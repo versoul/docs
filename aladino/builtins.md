@@ -672,6 +672,42 @@ rules:
 ```
 
 
+## &nbsp; hasUnaddressedReviewThreads
+______________
+
+**Description**:
+
+Verifies whether the pull request has review threads that are unaddressed, returning `true` or `false` as appropriate.
+
+A review thread is unaddressed when it is not `resolved` or `outdated`.
+
+**Parameters**:
+
+*none*
+
+**Return value**:
+
+`boolean`
+
+A boolean which is `true` if the pull request has any review thread that is not `resolved` or `outdated`, `false` otherwise.
+
+**Examples**:
+
+```yml
+$hasUnaddressedThreads()
+```
+
+A `reviewpad.yml` example:
+
+```yml
+rules:
+  - name: requires-author-attention
+    kind: patch
+    description: Requires author to take action
+    spec: $hasUnaddressedThreads()
+```
+
+
 ## &nbsp; head
 ______________
 
@@ -924,6 +960,7 @@ rules:
     spec: $size() > 100
 ```
 
+
 ## &nbsp; title
 ______________
 
@@ -956,6 +993,7 @@ rules:
     description: Verifies if the pull request title is "Test custom builtins"
     spec: $title() == "Test custom builtins"
 ```
+
 
 ## &nbsp; workflowStatus
 ______________
@@ -1216,10 +1254,10 @@ Determines whether a list includes a certain value among its entries, returning 
 
 **Parameters**:
 
-| variable        | type      | description                |
-| --------------- | --------- | -------------------------- |
-| `searchElement` | literal   | The value to search for    |
-| `list`          | []literal | The list to search in      |
+| variable        | type      | description             |
+| --------------- | --------- | ----------------------- |
+| `searchElement` | literal   | The value to search for |
+| `list`          | []literal | The list to search in   |
 
 **Return value**:
 
@@ -1253,9 +1291,9 @@ Length returns the length of an array.
 
 **Parameters**:
 
-| variable   | type     | description          |
-| ---------- | -------- | -------------------- |
-| `array`    | []string | array of elements    |
+| variable | type     | description       |
+| -------- | -------- | ----------------- |
+| `array`  | []string | array of elements |
 
 **Return value**:
 
@@ -1288,10 +1326,10 @@ Determines whether a text starts with a certain sentence, returning `true` or `f
 
 **Parameters**:
 
-| variable         | type   | description                |
-| ---------------- | ------ | -------------------------- |
-| `text`           | string | The text to search in      |
-| `prefix`         | string | The prefix                 |
+| variable | type   | description           |
+| -------- | ------ | --------------------- |
+| `text`   | string | The text to search in |
+| `prefix` | string | The prefix            |
 
 **Return value**:
 
@@ -1602,9 +1640,9 @@ Assigns a list of teams to review the pull request.
 
 **Parameters**:
 
-| variable                | type     | description                                                       |
-| ----------------------- | -------- | ----------------------------------------------------------------- |
-| `teamReviewers`         | []string | list of GitHub team slugs that will be requested to review        |
+| variable        | type     | description                                                |
+| --------------- | -------- | ---------------------------------------------------------- |
+| `teamReviewers` | []string | list of GitHub team slugs that will be requested to review |
 
 **Return value**:
 
@@ -1749,9 +1787,9 @@ If the comment is already present, then the action does nothing.
 
 **Parameters**:
 
-| variable           | type   | description                            |
-| ------------------ | ------ | -------------------------------------- |
-| `comment`          | string | body of the comment                    |
+| variable  | type   | description         |
+| --------- | ------ | ------------------- |
+| `comment` | string | body of the comment |
 
 **Return value**:
 
@@ -1855,9 +1893,9 @@ Fails the action with a given fail message which will appear in the logs of the 
 
 **Parameters**:
 
-| variable           | type   | description                            |
-| ------------------ | ------ | -------------------------------------- |
-| `failMessage`      | string | fail message                           |
+| variable      | type   | description  |
+| ------------- | ------ | ------------ |
+| `failMessage` | string | fail message |
 
 **Return value**:
 
