@@ -776,6 +776,42 @@ rules:
     spec: $isDraft()
 ```
 
+## &nbsp; isWaitingForReview
+______________
+
+**Description**:
+
+Verifies whether a pull request is waiting for review, returning `true` or `false` as appropriate.
+
+A pull request is set as waiting for review when there are **requested reviewers** or when there's at least of one reviewer whose last review is **outdated**.
+
+An outdated review is a review submitted before the last pull request update and whose state is not approved.
+
+**Parameters**:
+
+*none*
+
+**Return value**:
+
+`boolean`
+
+A boolean which is `true` if the pull request is waiting for review, `false` otherwise.
+
+**Examples**:
+
+```yml
+$isWaitingForReview()
+```
+
+A `reviewpad.yml` example:
+
+```yml
+rules:
+  - name: isWaitingForReview
+    kind: patch
+    description: Verifies if pull request is waiting for review
+    spec: $isWaitingForReview()
+```
 
 ## &nbsp; labels
 ______________
