@@ -391,7 +391,7 @@ The total number of files changed in the patch.
 **Examples**:
 
 ```yml
-$filesCount()
+$fileCount()
 ```
 
 A `reviewpad.yml` example:
