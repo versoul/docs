@@ -158,7 +158,7 @@ $changed("@1.go", "@1.md")
 This spec will return `true` if for each file in the patch with the extension `.go`
 there is also a file in the patch with the same name with the extension `.md`.
 
-A `revy.yml` example:
+A `reviewpad.yml` example:
 
 ```yml
 rules:
@@ -1108,7 +1108,7 @@ rules:
 ```
 
 
-## &nbsp; team
+## &nbsp; team :key:
 ______________
 
 **Description**:
@@ -1117,14 +1117,14 @@ Returns the members of a team and child teams.
 
 To list members in a team, the team must be visible to the authenticated user.
 
-| :warning: Requires a GitHub token :warning: |
-| ------------------------------------------- |
+| :key: Requires GitHub token :key: |
+| --------------------------------- |
 
 By default a GitHub action does not have permission to access organization members.
 
 Because of that, in order for the function `team` to work we need to provide a GitHub token to the Reviewpad action.
 
-[Please follow this link to know more](https://docs.reviewpad.com/docs/install-github-action-with-github-token).
+[Please follow this link to know more](https://docs.reviewpad.com/docs/github-action-with-github-token).
 
 **Parameters**:
 
@@ -1548,7 +1548,7 @@ workflows:
 ```
 
 
-## &nbsp; assignAssignees
+## &nbsp; assignAssignees :key:
 ______________
 
 **Description**:
@@ -1558,6 +1558,15 @@ Assigns up to 10 assignees to a pull request.
 Users already assigned to a pull request are not replaced.
 
 Only users with push access can assign users to a pull request. Assignees are silently ignored otherwise.
+
+| :key: Requires GitHub token :key: |
+| --------------------------------- |
+
+By default a GitHub action does not have permission to assign assignees to a pull request.
+
+Because of that, in order for the function `assignAssignees` to work we need to provide a GitHub token to the Reviewpad action.
+
+[Please follow this link to know more](https://docs.reviewpad.com/docs/github-action-with-github-token).
 
 **Parameters**:
 
@@ -1723,7 +1732,7 @@ Closes a pull request.
 $close()
 ```
 
-A `revy.yml` example:
+A `reviewpad.yml` example:
 
 ```yml
 workflows:
@@ -1837,7 +1846,7 @@ If the comment is already present, then the action does nothing.
 $commentOnce("This is your first contribution! Thank you!")
 ```
 
-A `revy.yml` example:
+A `reviewpad.yml` example:
 
 ```yml
 workflows:
@@ -1858,9 +1867,9 @@ Disables the list of Aladino actions passed as argument.
 
 **Parameters**:
 
-| variable    | type     | description                        |
-| ----------- | -------- | ---------------------------------- |
-| `actions`   | []string | the list of actions to be disabled |
+| variable  | type     | description                        |
+| --------- | -------- | ---------------------------------- |
+| `actions` | []string | the list of actions to be disabled |
 
 **Examples**:
 
@@ -1943,7 +1952,7 @@ Fails the action with a given fail message which will appear in the logs of the 
 $fail("please review the missing specs")
 ```
 
-A `revy.yml` example:
+A `reviewpad.yml` example:
 
 ```yml
 workflows:
@@ -1996,7 +2005,7 @@ workflows:
       - $info("This pull request was considered too large.")
 ```
 
-## &nbsp; merge
+## &nbsp; merge :key:
 ______________
 
 **Description**:
@@ -2005,14 +2014,14 @@ Merge a pull request with a specific merge method.
 
 By default, if no parameter is provided, it will perform a standard git merge.
 
-| :warning: Requires GitHub token :warning: |
-| ----------------------------------------- |
+| :key: Requires GitHub token :key: |
+| --------------------------------- |
 
-By default a GitHub action does not have permission to access organization members.
+By default a GitHub action does not have permission to merge.
 
-Because of that, in order for the function `team` to work we need to provide a GitHub token to the Reviewpad action.
+Because of that, in order for the function `merge` to work we need to provide a GitHub token to the Reviewpad action.
 
-[Please follow this link to know more](https://docs.reviewpad.com/docs/install-github-action-with-github-token).
+[Please follow this link to know more](https://docs.reviewpad.com/docs/github-action-with-github-token).
 
 **Parameters**:
 
