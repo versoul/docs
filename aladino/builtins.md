@@ -1353,6 +1353,42 @@ rules:
     spec: '$length($reviewers) > 1'
 ```
 
+## &nbsp; sprintf
+______________
+
+**Description**:
+
+Sprintf returns the formatted string.
+
+**Parameters**:
+
+| variable | type                      | description       |
+|----------|---------------------------|-------------------|
+| `format` | string                    | The format string |
+| `array`  | []\(string/int/bool/time) | array of elements |
+
+**Return value**:
+
+`string`
+
+Returns the lenght of the array.
+
+**Examples**:
+
+```yml
+$sprintf("Hello, %s!", ["world"])  # "Hello, world!"
+```
+
+A `reviewpad.yml` example:
+
+```yml
+rules:
+  - name: has-at-least-one-reviewer
+    kind: patch
+    description: Has more than one reviewer
+    spec: '$info($sprintf("Hello: %s, %s!", ["Username1", "Username2]))'
+```
+
 ## &nbsp; startsWith
 ______________
 
