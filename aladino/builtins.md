@@ -1365,7 +1365,7 @@ Sprintf returns a formatted string.
 | variable | type                      | description       |
 |----------|---------------------------|-------------------|
 | `format` | string                    | The format string |
-| `array`  | []\(string/int/bool/time) | array of elements |
+| `array`  | []string | array of elements |
 
 **Return value**:
 
