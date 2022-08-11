@@ -1382,11 +1382,12 @@ $sprintf("Hello, %s!", ["world"])  # "Hello, world!"
 A `reviewpad.yml` example:
 
 ```yml
-rules:
-  - name: has-at-least-one-reviewer
-    kind: patch
-    description: Has more than one reviewer
-    spec: '$info($sprintf("Hello: %s, %s!", ["Username1", "Username2]))'
+workflows:
+  - name: welcome-first-contributor
+    if:
+      - rule: is-first-contributor
+    then:
+      - '$commentOnce($sprintf("Thank you @%s for this first contribution!", [$author()]))'```
 ```
 
 ## &nbsp; startsWith
