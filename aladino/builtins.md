@@ -1371,7 +1371,7 @@ Sprintf returns a formatted string.
 
 `string`
 
-Returns the lenght of the array.
+Returns the formatted string.
 
 **Examples**:
 
