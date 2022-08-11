@@ -1362,10 +1362,10 @@ Sprintf returns a formatted string.
 
 **Parameters**:
 
-| variable   | type     | description            |
-|----------|--------|-------------------|
-| `format` | string    | format string         |
-| `array`    | []string | array of elements |
+| variable | type     | description       |
+| -------- | -------- | ----------------- |
+| `format` | string   | format string     |
+| `array`  | []string | array of elements |
 
 **Return value**:
 
@@ -1597,10 +1597,10 @@ If the status doesn't exist, an error is returned.
 
 **Parameters**:
 
-| variable          | type   | description                                               |
-| ----------------- | ------ | --------------------------------------------------------- |
-| `project name`    | string | name of the project you want to attach the pull request   |
-| `status`          | string | status of the pull request (must be present as a status ) |
+| variable       | type   | description                                               |
+| -------------- | ------ | --------------------------------------------------------- |
+| `project name` | string | name of the project you want to attach the pull request   |
+| `status`       | string | status of the pull request (must be present as a status ) |
 
 **Return value**:
 
