@@ -1362,10 +1362,10 @@ Sprintf returns a formatted string.
 
 **Parameters**:
 
-| variable | type                      | description       |
-|----------|---------------------------|-------------------|
-| `format` | string                    | format string |
-| `array`  | []string | array of elements |
+| variable   | type     | description            |
+|----------|--------|-------------------|
+| `format` | string    | format string         |
+| `array`    | []string | array of elements |
 
 **Return value**:
 
