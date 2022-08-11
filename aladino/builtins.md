@@ -1358,7 +1358,7 @@ ______________
 
 **Description**:
 
-Sprintf returns the formatted string.
+Sprintf returns a formatted string.
 
 **Parameters**:
 
